@@ -75,7 +75,7 @@ export default function DisplayTotalPrice() {
         >
           <div className="d-flex justify-content-between">
             <div id="subheader2" className="d-flex">
-              <p className="h6 m-0 my-auto pe-2"> {t(" totalprice")} </p>
+              <p className="h6 m-0 my-auto pe-2"> {t("totalprice")} </p>
               <p
                 id="subheader3"
                 className="m-0 my-auto border-start ps-2 text-body-secondary"
