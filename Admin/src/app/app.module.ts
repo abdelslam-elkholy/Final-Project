@@ -21,6 +21,7 @@ import { FusionChartsModule } from "angular-fusioncharts";
 import * as FusionCharts from "fusioncharts";
 import * as Charts from "fusioncharts/fusioncharts.charts";
 import * as FusionTheme from "fusioncharts/themes/fusioncharts.theme.fusion";
+import { HashLocationStrategy, LocationStrategy } from "@angular/common";
 
 FusionChartsModule.fcRoot(FusionCharts, Charts, FusionTheme);
 
@@ -53,6 +54,7 @@ FusionChartsModule.fcRoot(FusionCharts, Charts, FusionTheme);
       useClass: AuthInterceptor,
       multi: true,
     },
+    { provide: LocationStrategy, useClass: HashLocationStrategy },
   ],
   bootstrap: [AppComponent],
 })

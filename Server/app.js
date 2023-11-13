@@ -24,7 +24,7 @@ const limiter = rateLimit({
 app.use(express.static("public"));
 app.use(helmet());
 app.use(express.json());
-// app.use("/", limiter);
+app.use("/", limiter);
 app.use(cors());
 app.use(mongoSanitize());
 app.use(xss());

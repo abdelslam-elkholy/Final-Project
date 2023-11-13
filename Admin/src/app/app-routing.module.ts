@@ -14,65 +14,60 @@ import { ReportsComponent } from "./Components/reports/reports.component";
 
 const routes: Routes = [
   { path: "signin", component: SignInComponent, data: { title: "Login" } },
-  {
-    path: "",
-    canActivate: [AdminGuard],
-    children: [
-      {
-        path: "home",
-        component: ReportsComponent,
-        data: { title: "Home Page" },
-      },
-      {
-        path: "reports",
-        component: ReportsComponent,
-        data: { title: "Reports Page" },
-      },
-      {
-        path: "houses",
-        component: HousesComponent,
-        data: { title: "Houses Page" },
-      },
-      {
-        path: "add-house/:id",
-        component: AddHouseComponent,
-        data: { title: "Add House" },
-      },
-      {
-        path: "categories",
-        component: CategoriesComponent,
-        data: { title: "Categories Page" },
-      },
-      {
-        path: "add-category/:id",
-        component: AddCategoryComponent,
-        data: { title: "Add Category" },
-      },
-      {
-        path: "users",
-        component: UsersComponent,
-        data: { title: "Users Page" },
-      },
-      {
-        path: "reservations",
-        component: ReservationsComponent,
-        data: { title: "Reservations Page" },
-      },
-      {
-        path: "team",
-        component: TeamComponent,
-        data: { title: "Team Page" },
-      },
 
-      { path: "house-details/:id", component: HouseDetailsComponent },
-      { path: "", redirectTo: "/home", pathMatch: "full" },
-      { path: "**", redirectTo: "/home", pathMatch: "full" },
-    ],
+  {
+    path: "home",
+    component: ReportsComponent,
+    data: { title: "Home Page" },
   },
+  {
+    path: "reports",
+    component: ReportsComponent,
+    data: { title: "Reports Page" },
+  },
+  {
+    path: "houses",
+    component: HousesComponent,
+    data: { title: "Houses Page" },
+  },
+  {
+    path: "add-house/:id",
+    component: AddHouseComponent,
+    data: { title: "Add House" },
+  },
+  {
+    path: "categories",
+    component: CategoriesComponent,
+    data: { title: "Categories Page" },
+  },
+  {
+    path: "add-category/:id",
+    component: AddCategoryComponent,
+    data: { title: "Add Category" },
+  },
+  {
+    path: "users",
+    component: UsersComponent,
+    data: { title: "Users Page" },
+  },
+  {
+    path: "reservations",
+    component: ReservationsComponent,
+    data: { title: "Reservations Page" },
+  },
+  {
+    path: "team",
+    component: TeamComponent,
+    data: { title: "Team Page" },
+  },
+
+  { path: "house-details/:id", component: HouseDetailsComponent },
+  { path: "", redirectTo: "/home", pathMatch: "full" },
+  { path: "**", redirectTo: "/home", pathMatch: "full" },
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes, { useHash: true })],
   exports: [RouterModule],
 })
 export class AppRoutingModule {}

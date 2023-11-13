@@ -39,7 +39,11 @@ export class HouseDetailsComponent implements OnInit {
     private reservationsService: ReservationsService,
     private route: ActivatedRoute,
     private router: Router
-  ) {}
+  ) {
+    this.route.paramMap.subscribe((params) => {
+      this.ngOnInit();
+    });
+  }
   ngOnInit(): void {
     const houseId = this.route.snapshot.paramMap.get("id");
     if (!houseId) {
