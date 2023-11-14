@@ -68,21 +68,21 @@ exports.signIn = async function (req, res, next) {
     return next(new AppError(error.message, 400));
   }
 };
-exports.forgotPassword = async (req, res, next) => {
-  try {
-    const user = await User.findOne({ email: req.body.email });
+// exports.forgotPassword = async (req, res, next) => {
+//   try {
+//     const user = await User.findOne({ email: req.body.email });
 
-    if (!user) {
-      return next(new AppError("there is no user with this email", 404));
-    }
+//     if (!user) {
+//       return next(new AppError("there is no user with this email", 404));
+//     }
 
-    const resetToken = user.createPasswordResetToken();
+//     const resetToken = user.createPasswordResetToken();
 
-    await user.save({ validateBeforeSave: false });
-  } catch (error) {
-    return next(new AppError(error.message, 500));
-  }
-};
+//     await user.save({ validateBeforeSave: false });
+//   } catch (error) {
+//     return next(new AppError(error.message, 500));
+//   }
+// };
 
 exports.protect = async (req, res, next) => {
   try {
@@ -105,7 +105,7 @@ exports.protect = async (req, res, next) => {
     }
 
     if (existUser.checkChangedPasswordTime(decoded.iat)) {
-      return next(new AppError("session ended pleas login again ", 401));
+      return next(new AppError("session ended please login again ", 401));
     }
 
     req.user = existUser;
