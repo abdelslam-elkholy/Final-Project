@@ -2,6 +2,7 @@ const express = require("express");
 const { errorHandler, AppError } = require("./utils/appError");
 const rateLimit = require("express-rate-limit");
 const cors = require("cors");
+require("dotenv").config();
 const helmet = require("helmet");
 const mongoSanitize = require("express-mongo-sanitize");
 const xss = require("xss-clean");
